@@ -1,8 +1,9 @@
-package com.example.myweatherdev
+package com.example.myweatherdev.ui.main.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.myweatherdev.ui.main.MainFragment
+import androidx.appcompat.app.AppCompatActivity
+import com.example.myweatherdev.R
+import com.example.myweatherdev.ui.main.view.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,8 +12,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, MainFragment.newInstance())
-                    .commitNow()
+                .replace(R.id.container, MainFragment.newInstance())
+                .commitNow()
         }
     }
 }
