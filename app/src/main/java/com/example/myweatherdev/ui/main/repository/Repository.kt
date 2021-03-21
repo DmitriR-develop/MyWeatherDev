@@ -1,4 +1,6 @@
-package com.example.myweatherdev.ui.main.model
+package com.example.myweatherdev.ui.main.repository
+
+import com.example.myweatherdev.ui.main.model.Weather
 
 interface Repository {
     fun getWeatherFromServer() : Weather

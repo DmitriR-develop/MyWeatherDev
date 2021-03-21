@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.myweatherdev.R
 import com.example.myweatherdev.databinding.FragmentMainBinding
 import com.example.myweatherdev.ui.main.model.Weather
+import com.example.myweatherdev.ui.main.utils.showSnackBar
 import com.example.myweatherdev.ui.main.view.details.DetailsFragment
 import com.example.myweatherdev.ui.main.viewmodel.AppState
 import com.example.myweatherdev.ui.main.viewmodel.MainViewModel
@@ -55,14 +56,21 @@ class MainFragment : Fragment() {
         viewModel.getWeatherFromLocalSourceRus()
     }
 
-    private fun changeWeatherDataSet() =
+    override fun onDestroy() {
+        adapter.removeListener()
+        super.onDestroy()
+    }
+
+    private fun changeWeatherDataSet() {
         if (isDataSetRus) {
-            viewModel.getWeatherFromRemoteSourceWorld()
+            viewModel.getWeatherFromLocalSourceWorld()
             binding.mainFragmentFAB.setImageResource(R.drawable.ic_earth)
         } else {
             viewModel.getWeatherFromLocalSourceRus()
             binding.mainFragmentFAB.setImageResource(R.drawable.ic_russia)
-        }.also { isDataSetRus != isDataSetRus }
+        }
+        isDataSetRus != isDataSetRus
+    }
 
     private fun renderData(appState: AppState) {
         when (appState) {
@@ -83,25 +91,16 @@ class MainFragment : Fragment() {
         }
     }
 
+    interface OnItemViewClickListener {
+        fun onItemViewClick(weather: Weather)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     companion object {
         fun newInstance() = MainFragment()
     }
-
-    override fun onDestroy() {
-        adapter.removeListener()
-        super.onDestroy()
-    }
-
-    private fun View.showSnackBar(
-        text: String,
-        actionText: String,
-        action: (View) -> Unit,
-        length: Int = Snackbar.LENGTH_INDEFINITE
-    ) {
-        Snackbar.make(this, text, length).setAction(actionText, action).show()
-    }
-}
-
-interface OnItemViewClickListener {
-    fun onItemViewClick(weather: Weather)
 }

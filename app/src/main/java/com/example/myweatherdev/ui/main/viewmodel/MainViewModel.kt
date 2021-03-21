@@ -2,7 +2,7 @@ package com.example.myweatherdev.ui.main.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.myweatherdev.ui.main.model.RepositoryImpl
+import com.example.myweatherdev.ui.main.repository.RepositoryImpl
 import java.lang.Thread.sleep
 
 class MainViewModel(
@@ -15,7 +15,7 @@ class MainViewModel(
 
     fun getWeatherFromLocalSourceRus() = getDataFromLocalSource(isRussian = true)
 
-    fun getWeatherFromRemoteSourceWorld() = getDataFromLocalSource(isRussian = false)
+    fun getWeatherFromLocalSourceWorld() = getDataFromLocalSource(isRussian = false)
 
     fun getWeatherFromRemoteSource() = getDataFromLocalSource(isRussian = true)
 

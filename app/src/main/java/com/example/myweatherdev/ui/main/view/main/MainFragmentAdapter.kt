@@ -3,12 +3,12 @@ package com.example.myweatherdev.ui.main.view.main
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myweatherdev.R
 import com.example.myweatherdev.ui.main.model.Weather
+import kotlinx.android.synthetic.main.fragment_main_recycler_item.view.*
 
-class MainFragmentAdapter(private var onItemViewClickListener: OnItemViewClickListener?) :
+class MainFragmentAdapter(private var onItemViewClickListener: MainFragment.OnItemViewClickListener?) :
     RecyclerView.Adapter<MainFragmentAdapter.MainViewHolder>() {
 
     private var weatherData: List<Weather> = listOf()
@@ -16,6 +16,10 @@ class MainFragmentAdapter(private var onItemViewClickListener: OnItemViewClickLi
     fun setWeather(data: List<Weather>) {
         weatherData = data
         notifyDataSetChanged()
+    }
+
+    fun removeListener() {
+        onItemViewClickListener = null
     }
 
     override fun onCreateViewHolder(
@@ -37,16 +41,11 @@ class MainFragmentAdapter(private var onItemViewClickListener: OnItemViewClickLi
         return weatherData.size
     }
 
-    fun removeListener() {
-        onItemViewClickListener = null
-    }
-
     inner class MainViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(weather: Weather) {
             itemView.apply {
-                findViewById<TextView>(R.id.mainFragmentRecyclerItemTextView).text =
-                    weather.city.city
+                mainFragmentRecyclerItemTextView.text = weather.city.city
                 setOnClickListener { onItemViewClickListener?.onItemViewClick(weather) }
             }
         }
