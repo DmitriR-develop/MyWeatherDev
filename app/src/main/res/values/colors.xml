@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="loadingBackground">#80FFFFFF</color>
     <color name="fragmentBackground">#FFFFFF</color>
+    <color name="moccasin">#FFE4B5</color>
+    <color name="lemon_chiffon">#FFFACD</color>
 </resources>
