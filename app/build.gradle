@@ -48,8 +48,10 @@ android {
 dependencies {
 
     implementation 'androidx.room:room-runtime:2.2.6'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.2'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
     kapt 'androidx.room:room-compiler:2.2.6'
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -70,3 +72,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
+
+apply plugin: 'com.google.gms.google-services'

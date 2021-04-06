@@ -22,7 +22,7 @@ import com.example.myweatherdev.ui.main.model.City
 import com.example.myweatherdev.ui.main.model.Weather
 import com.example.myweatherdev.ui.main.utils.showSnackBar
 import com.example.myweatherdev.ui.main.view.details.DetailsFragment
-import com.example.myweatherdev.ui.main.viewmodel.AppState
+import com.example.myweatherdev.ui.main.app.AppState
 import com.example.myweatherdev.ui.main.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.fragment_main.*
 import java.io.IOException

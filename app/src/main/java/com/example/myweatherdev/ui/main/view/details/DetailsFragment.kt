@@ -2,28 +2,21 @@ package com.example.myweatherdev.ui.main.view.details
 
 import android.net.Uri
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.myweatherdev.BuildConfig
 import com.example.myweatherdev.R
 import com.example.myweatherdev.databinding.FragmentDetailsBinding
 import com.example.myweatherdev.ui.main.model.City
 import com.example.myweatherdev.ui.main.model.Weather
-import com.example.myweatherdev.ui.main.model.WeatherDTO
 import com.example.myweatherdev.ui.main.utils.showSnackBar
-import com.example.myweatherdev.ui.main.viewmodel.AppState
+import com.example.myweatherdev.ui.main.app.AppState
 import com.example.myweatherdev.ui.main.viewmodel.DetailsViewModel
 import com.github.twocoffeesoneteam.glidetovectoryou.GlideToVectorYou
-import com.google.gson.Gson
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_details.*
-import okhttp3.*
-import java.io.IOException
 
 private const val PROCESS_ERROR = "Обработка ошибки"
 private const val MAIN_LINK = "https://api.weather.yandex.ru/v2/informers?"
@@ -42,7 +35,8 @@ class DetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.fragment_details, container, false)
+        _binding = FragmentDetailsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.myweatherdev.R
 import com.example.myweatherdev.databinding.FragmentHistoryBinding
 import com.example.myweatherdev.ui.main.utils.showSnackBar
-import com.example.myweatherdev.ui.main.viewmodel.AppState
+import com.example.myweatherdev.ui.main.app.AppState
 import com.example.myweatherdev.ui.main.viewmodel.HistoryViewModel
 import kotlinx.android.synthetic.main.fragment_history.*
 

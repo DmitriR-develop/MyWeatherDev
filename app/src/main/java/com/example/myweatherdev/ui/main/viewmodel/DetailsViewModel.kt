@@ -3,14 +3,12 @@ package com.example.myweatherdev.ui.main.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.myweatherdev.ui.main.app.App
+import com.example.myweatherdev.ui.main.app.AppState
 import com.example.myweatherdev.ui.main.model.Weather
 import com.example.myweatherdev.ui.main.model.WeatherDTO
 import com.example.myweatherdev.ui.main.repository.*
 import com.example.myweatherdev.ui.main.utils.convertDtoToModel
-import com.google.gson.Gson
-import okhttp3.Call
 import retrofit2.Callback
-import java.io.IOException
 
 private const val SERVER_ERROR = "Ошибка сервера"
 private const val REQUEST_ERROR = "Ошибка запроса на сервер"
